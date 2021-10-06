@@ -1,20 +1,12 @@
 pipeline {
-          agent {label 'Slave1'}
-         stages {
-                 stage('Build') {
-                 steps {
-                     echo 'Hi, DevOps Engineer. Starting to build the App.'
-                 }
-         
-                 stage('Test') {
-                 steps {
-                    input('Do you want to proceed?')
-                 }
-                 
-                 
-                 }
-
-              }
-         }
-    
-}
+    agent {label 'test1':'test2'}
+    tools {
+        maven 'apache-maven-3.0.1' 
+    }
+    stages {
+        stage('Example') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
