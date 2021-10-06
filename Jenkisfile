@@ -1,8 +1,23 @@
-node{'test'
-    stage('pull the code from github'){
-      git credentialsId: 'github-credentials ', url: 'https://github.com/anandcompany/phonepe1.git'   
-    }
-    stage('build the code'){
-        sh 'mvn clean install'
-    }
+
+
+
+pipeline {
+          agent {label 'Slave1'}
+         stages {
+                 stage('Build') {
+                 steps {
+                     echo 'Hi, DevOps Engineer. Starting to build the App.'
+                 }
+         
+                 stage('Test') {
+                 steps {
+                    input('Do you want to proceed?')
+                 }
+                 
+                 
+                 }
+
+              }
+         }
+    
 }
