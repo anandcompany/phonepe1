@@ -1,0 +1,8 @@
+node{'test'
+    stage('pull the code from github'){
+      git credentialsId: 'github-credentials ', url: 'https://github.com/anandcompany/phonepe1.git'   
+    }
+    stage('build the code'){
+        sh 'mvn clean install'
+    }
+}
